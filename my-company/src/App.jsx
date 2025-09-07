@@ -1,8 +1,8 @@
-import {createRouter, RouterProvider} from 'react-router-dom' ;
+import {createRouter, RouterProvider,} from 'react-router-dom' ;
 import './App.css'
 import Navbar from './components/common/Navbar';
 
-const router = createRouter([
+const Routes = createRouter([
   { path: '/', element: <Home /> },
   {path: '/about', element: <About />},
   {path: '/contact', element: <Contact />},
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} >
+      <RouterProvider router={Routes} >
         <Navbar />
       </RouterProvider>
 
