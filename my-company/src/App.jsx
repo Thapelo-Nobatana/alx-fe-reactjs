@@ -1,6 +1,6 @@
 import {createRouter, RouterProvider,} from 'react-router-dom' ;
 import './App.css'
-import Navbar from './components/common/Navbar';
+import Navbar from './components/Navbar';
 
 const Routes = createRouter([
   { path: '/', element: <Home /> },
