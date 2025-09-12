@@ -1,16 +1,19 @@
-import AddRecipeForm from '/Projects/alx-webFrontend/alx-fe-reactjs/recipe-sharing-app/src/components/AddRecipeForm';
-import RecipeList from '/Projects/alx-webFrontend/alx-fe-reactjs/recipe-sharing-app/src/components/RecipeList'
-import './App.css'
+import React from 'react';
+import { Routes, Route, useParams } from 'react-router-dom';
+import RecipesList from './components/RecipesList';
+import RecipeDetails from './components/RecipeDetails';
 
-function App() {
-
-
-  return (
-    <>
-      <AddRecipeForm />
-      <RecipeList />
-    </>
-  )
+function RecipeDetailsWrapper() {
+  const { id } = useParams();
+  return <RecipeDetails recipeId={id} />;
 }
 
-export default App
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<div><a href="/recipes">Go to recipes</a></div>} />
+      <Route path="/recipes" element={<RecipesList />} />
+      <Route path="/recipes/:id" element={<RecipeDetailsWrapper />} />
+    </Routes>
+  );
+}
