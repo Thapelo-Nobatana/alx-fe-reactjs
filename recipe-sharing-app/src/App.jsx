@@ -1,7 +1,13 @@
-import React from 'react';
-import { Routes, Route, useParams } from 'react-router-dom';
-import RecipesList from './components/RecipesList';
-import RecipeDetails from './components/RecipeDetails';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from "react-router-dom";
+
+import RecipesList from "./components/RecipesList";
+import RecipeDetails from "./components/RecipeDetails";
 
 function RecipeDetailsWrapper() {
   const { id } = useParams();
@@ -10,10 +16,19 @@ function RecipeDetailsWrapper() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<div><a href="/recipes">Go to recipes</a></div>} />
-      <Route path="/recipes" element={<RecipesList />} />
-      <Route path="/recipes/:id" element={<RecipeDetailsWrapper />} />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <a href="/recipes">Go to recipes</a>
+            </div>
+          }
+        />
+        <Route path="/recipes" element={<RecipesList />} />
+        <Route path="/recipes/:id" element={<RecipeDetailsWrapper />} />
+      </Routes>
+    </Router>
   );
 }
