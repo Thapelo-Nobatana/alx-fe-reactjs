@@ -9,6 +9,7 @@ import {
 import RecipesList from "./components/RecipesList";
 import RecipeDetails from "./components/RecipeDetails";
 import SearchBar from "./components/SearchBar";
+import AddRecipeForm from "./components/AddRecipeForm";
 
 function RecipeDetailsWrapper() {
   const { id } = useParams();
@@ -28,11 +29,12 @@ export default function App() {
           }
         />
         <Route path="/recipes" element={<RecipesList />} />
-        <Route path="/recipes/:id" element={<RecipeDetailsWrapper />} />
+        <Route path="/recipes/:id" element={<RecipeDetails />} />
         <Route path="/recipes" element={ <div>
            <SearchBar />
            <RecipesList />
            </div>} />
+                     <Route path="/add-recipe" element={<AddRecipeForm />} />
       </Routes>
     </Router>
   );
