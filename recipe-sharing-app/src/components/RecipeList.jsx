@@ -1,20 +1,25 @@
-import { useRecipeStore } from '/Projects/alx-webFrontend/recipe-sharing-app/src/store/recipeStore';
+import React from "react";
+import useRecipeStore from "../recipeStore";
+import { Link } from "react-router-dom";
 
-const RecipeList = () => {
-    const recipes = useRecipeStore(state => state.recipes);
+const RecipesList = () => {
+  const { recipes, filteredRecipes, searchTerm } = useRecipeStore();
 
-    return (
-        <div>
-            {
-                recipes.map(recipe => ( 
-                    <div key={recipe.id}>
-                        <h3>{recipe.title}</h3>
-                        <p>{recipe.description}</p>
-                    </div>
-                ))
-            }
-        </div>
-    )
-}
+  const listToRender =
+    searchTerm.trim().length > 0 ? filteredRecipes : recipes;
 
-export default RecipeList;
+  return (
+    <div>
+      <h2>Recipes</h2>
+      <ul>
+        {listToRender.map((recipe) => (
+          <li key={recipe.id}>
+            <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default RecipesList;
