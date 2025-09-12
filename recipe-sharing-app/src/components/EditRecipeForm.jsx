@@ -14,8 +14,8 @@ export default function EditRecipeForm({ recipe, onSaved, onCancel }) {
   );
   const [stepsText, setStepsText] = useState((recipe.steps || []).join('\n'));
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const updated = {
       title,
       description,
