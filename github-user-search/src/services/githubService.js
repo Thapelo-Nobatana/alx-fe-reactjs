@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://api.github.com/search/users?q";
 
 // Search users with advanced filters
-export const searchUsers = async ({ username, location, minRepos }) => {
+export const fetchUserData = async ({ username, location, minRepos }) => {
   try {
     let query = "";
 

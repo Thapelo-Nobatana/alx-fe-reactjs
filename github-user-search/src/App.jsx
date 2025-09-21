@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SearchBar from "./components/Search";
 import UserCard from "./components/UserCard";
-import { getUser } from "./services/githubService";
+import { fetchUserData } from "./services/githubService";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -9,7 +9,7 @@ function App() {
 
   const handleSearch = async (username) => {
     try {
-      const data = await getUser(username);
+      const data = await fetchUserData(username);
       setUser(data);
       setError("");
     } catch {
