@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const SearchBar = () => {
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -9,6 +10,7 @@ const SearchBar = () => {
       // eslint-disable-next-line no-undef
       onSearch(username);
       setUsername(username);
+      setLoading(true);
     }
   };
   return (
@@ -20,7 +22,7 @@ const SearchBar = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <button type="submit">{loading ? "Loading..." : "Search"}</button>
       </form>
     </>
   );
