@@ -1,7 +1,7 @@
 import { useState } from "react";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/Search";
 import UserCard from "./components/UserCard";
-import { getUser } from "./services/github";
+import { getUser } from "./services/githubService";
 
 function App() {
   const [user, setUser] = useState(null);
