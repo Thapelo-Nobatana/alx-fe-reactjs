@@ -22,7 +22,7 @@ const SearchBar = () => {
       const data = await fetchUserData(username);
       setUser(data);
     } catch (error) {
-      setError("Looks like we can't find the user", error);
+      setError("Looks like we cant find the user", error);
     } finally {
       setLoading(false);
     }
