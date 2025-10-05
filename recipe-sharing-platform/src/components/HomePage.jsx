@@ -21,7 +21,7 @@ export const HomePage = () => {
           data.map((item, index) => (
             <div
               key={index}
-              className="grid grid-col-1 md:grid-col-2 lg:grid-col-4 bg-[#ffffff] text-black rounded-lg item-center hover:shadow-lg p-4 m-4"
+              className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-[#ffffff] text-black rounded-lg item-center hover:shadow-lg p-4 m-4"
             >
               <h1>{item.id}</h1>
               <p>{item.title}</p>
