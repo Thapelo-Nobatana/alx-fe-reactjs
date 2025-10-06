@@ -35,7 +35,7 @@ export const HomePage = () => {
           <div>Loading...</div>
         )}
         <div>
-          <Link to={`/recipe/ ${recipe.id}`}
+          <Link to ={`/recipe/ ${recipe.id}`}
            className="text-blue-600 hover:text-blue-800 font-medium"
           >
           View Details 
