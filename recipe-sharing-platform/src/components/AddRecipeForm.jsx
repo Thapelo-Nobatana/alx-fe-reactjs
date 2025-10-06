@@ -10,8 +10,8 @@ const AddRecipeForm = () => {
   const [errors, setErrors] = useState(null);
   // input change handler
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (value) => {
+    const { name, value } = target.value;
     setRecipe((prevRecipe) => ({
       ...prevRecipe,
       [name]: value,
