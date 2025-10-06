@@ -1,37 +1,73 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import recipesData from "./src/data.json"
 
 const RecipeDetail = () => {
-  const [data, setData] = useState(null);
 
-  useEffect(() => {
-    // Simulate fetching data
-    setTimeout(() => {
-      fetch("/src/data.json")
-        .then((response) => response.json())
-        .then((data) => setData(data))
-        .catch((error) => console.error("Error fetching data:", error));
-    }, 1000);
-  }, []);
+  const { id } = useParams();
+  const [recipe, setRecipe] = useState(null);
+
+   useEffect(() => {
+    const selectedRecipe = recipesData.find(
+      (item) => item.id === parseInt(id)
+    );
+    setRecipe(selectedRecipe);
+   }, [id]);
+   if (!recipe) {
+      return (
+        <div className="flex justify-center items-center h-screen text-gray-500 text-lg">
+          Loading recipe details...
+        </div>
+      )
+   }
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        {Array.isArray(data) ? (
-          data.map((item, index) => (
-            <div
-              key={index}
-              className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-[#ffffff] text-black rounded-lg item-center hover:shadow-lg p-4 m-4"
+     <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+        <img
+          src={recipe.image}
+          alt={recipe.title}
+          className="w-full h-64 object-cover"
+        />
+        <div className="p-6">
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            {recipe.title}
+          </h1>
+
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+              Ingredients
+            </h2>
+            <ul className="list-disc list-inside text-gray-600 space-y-1">
+              {recipe.ingredients.map((ingredient, index) => (
+                <li key={index}>{ingredient}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+              Cooking Instructions
+            </h2>
+            <ol className="list-decimal list-inside text-gray-600 space-y-2">
+              {recipe.instructions.map((step, index) => (
+                <li key={index}>{step}</li>
+              ))}
+            </ol>
+          </section>
+
+          <div className="mt-6">
+            <Link
+              to="/"
+              className="inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
             >
-              <h1>{item.id}</h1>
-              <p>{item.title}</p>
-              <p>{item.summary}</p>
-              <img src={item.image} alt="image" />
-            </div>
-          ))
-        ) : (
-          <div>Loading...</div>
-        )}
+              ← Back to Home
+            </Link>
+          </div>
+        </div>
       </div>
+    </div>
     </>
   );
 };
