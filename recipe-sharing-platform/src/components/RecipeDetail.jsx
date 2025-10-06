@@ -37,7 +37,7 @@ const RecipeDetail = () => {
 
           <section className="mb-6">
             <h2 className="text-xl font-semibold text-gray-700 mb-2">
-              Ingredients
+              ingredients
             </h2>
             <ul className="list-disc list-inside text-gray-600 space-y-1">
               {recipe.ingredients.map((ingredient, index) => (
@@ -48,7 +48,7 @@ const RecipeDetail = () => {
 
           <section>
             <h2 className="text-xl font-semibold text-gray-700 mb-2">
-              Cooking Instructions
+              Cooking instructions
             </h2>
             <ol className="list-decimal list-inside text-gray-600 space-y-2">
               {recipe.instructions.map((step, index) => (
