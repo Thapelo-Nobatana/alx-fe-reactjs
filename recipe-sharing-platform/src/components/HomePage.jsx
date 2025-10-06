@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
+import recipesData from "/src/data.json"
 export const HomePage = () => {
   const [data, setData] = useState(null);
 
@@ -32,6 +34,13 @@ export const HomePage = () => {
         ) : (
           <div>Loading...</div>
         )}
+        <div>
+          <Link to={`/recipe/ ${recipe.id}`}
+           className="text-blue-600 hover:text-blue-800 font-medium"
+          >
+          View Details 
+          </Link>
+        </div>
       </div>
     </>
   );
