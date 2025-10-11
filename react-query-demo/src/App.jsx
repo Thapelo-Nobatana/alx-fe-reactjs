@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import PostsComponent from "./PostsComponent";
+import PostsComponent from "./components/PostsComponent";
 
 const queryClient = new QueryClient();
 
