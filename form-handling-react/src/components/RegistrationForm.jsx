@@ -1,22 +1,37 @@
 import React, { useState } from "react";
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const onChange = (e) => {
     e.preventDefault();
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
+    const { name, value } = e.target;
+    if (name === "username") setUsername(value);
+    if (name === "email") setEmail(value);
+    if (name === "password") setPassword(value);
+    if (name === "confirmPassword") setConfirmPassword(value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!username) {
+      console.log("Username is required");
+    }
+    if (!email) {
+      console.log("Email is required");
+    }
+    if (!password) {
+      console.log("Password is required");
+    }
   };
 
   return (
     <>
       <h1>RegistrationForm</h1>
-      <form action="submit">
+      <form action="submit" onSubmit={handleSubmit}>
         <input
           type="text"
           name="username"
@@ -43,7 +58,7 @@ const RegistrationForm = () => {
           name="confirmPassword"
           placeholder="Confirm Password"
           onChange={onChange}
-          value={formData.confirmPassword}
+          value={confirmPassword}
         />
         <button type="submit">Register</button>
       </form>
