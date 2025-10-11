@@ -22,21 +22,21 @@ const RegistrationForm = () => {
           name="username"
           placeholder="Username"
           onChange={onChange}
-          value={formData.username}
+          value={username}
         />
         <input
           type="email"
           name="email"
           placeholder="Email"
           onChange={onChange}
-          value={formData.email}
+          value={email}
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
           onChange={onChange}
-          value={formData.password}
+          value={password}
         />
         <input
           type="password"
