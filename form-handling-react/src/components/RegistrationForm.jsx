@@ -5,6 +5,7 @@ const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [errors, setErrors] = useState({});
 
   const onChange = (e) => {
     e.preventDefault();
@@ -13,6 +14,7 @@ const RegistrationForm = () => {
     if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);
     if (name === "confirmPassword") setConfirmPassword(value);
+    setErrors({ ...errors, [name]: "" });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +27,9 @@ const RegistrationForm = () => {
     }
     if (!password) {
       console.log("Password is required");
+    }
+    if (password !== confirmPassword) {
+      console.log("Passwords must match");
     }
   };
 
