@@ -5,6 +5,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./components/Profile";
+import BlogPost from "./components/BlogPost";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -44,6 +45,7 @@ function App() {
             <Route path="details" element={<div>Profile Details</div>} />
             <Route path="settings" element={<div>Profile Settings</div>} />
           </Route>
+          <Route path="/components/blogpost/:id" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>
     </>
