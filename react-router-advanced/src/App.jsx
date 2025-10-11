@@ -45,7 +45,7 @@ function App() {
             <Route path="details" element={<div>Profile Details</div>} />
             <Route path="settings" element={<div>Profile Settings</div>} />
           </Route>
-          <Route path="/components/blogpost/:id" element={<BlogPost />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>
     </>
